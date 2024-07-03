@@ -23,7 +23,7 @@ public class CardControllerIntegrationTest {
     @DisplayName("Happy Path Test: A card is correctly saved into a repository")
     void givenCorrectCard_whenSaveCard_thenReturnCardobject() throws Exception {
         Card savedCard = CardService.saveCard(DebitCard.builder().id(ID).isActivated(false).pin(PIN).bank(BANK).account(
-            Account.builder().build()));
+            Account.builder().build()).build());
 
         assertNotNull(savedCard);
         assertEquals(PIN, savedCard.getPin());

@@ -2,7 +2,6 @@ package es.nextdigital.service;
 
 
 import es.nextdigital.model.card.Card;
-import es.nextdigital.model.card.DebitCard.DebitCardBuilder;
 import es.nextdigital.repository.CardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,7 +16,7 @@ public class CardService {
         this.cardRepository = cardRepository;
     }
 
-    public static Card saveCard(DebitCardBuilder nextDigitalBank) {
+    public static Card saveCard(Card card) {
     }
 
     public Double getMoney(Long id, Double amount) {
