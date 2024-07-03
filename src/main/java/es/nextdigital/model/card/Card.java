@@ -18,8 +18,11 @@ public abstract class Card {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+    @Getter
     Boolean isActivated;
+    @Getter
     String pin;
+    @Getter
     String bank;
     @OneToOne
     @Getter
