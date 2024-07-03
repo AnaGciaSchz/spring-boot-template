@@ -17,7 +17,7 @@ public class CardService {
     }
 
     public static Card saveCard(Card card) {
-    }Card(Card card) {
+    this.cardRepository.save(card)
     }
 
     public Double getMoney(Long id, Double amount) {

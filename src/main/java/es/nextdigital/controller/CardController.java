@@ -29,9 +29,7 @@ public class CardController {
 
     @PostMapping("/cards/{id}/withdraw")
     public ResponseEntity<String> getMoney(@PathVariable Long id, @RequestBody Double amount) {
-        try{
             return ResponseEntity.ok().build();
-        }
     }
 
 }
