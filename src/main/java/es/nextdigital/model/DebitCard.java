@@ -1,9 +1,6 @@
 package es.nextdigital.model;
 
-public class DebitCard implements Card{
-    private Boolean isActivated;
-    private String pin;
+public class DebitCard extends Card{
     private Double balance;
-    private String bank;
 
 }
