@@ -16,8 +16,8 @@ public class CardService {
         this.cardRepository = cardRepository;
     }
 
-    public static Card saveCard(Card card) {
-    this.cardRepository.save(card)
+    public Card saveCard(Card card) {
+        return this.cardRepository.save(card);
     }
 
     public Double getMoney(Long id, Double amount) {

@@ -18,7 +18,7 @@ public class AccountService {
     }
 
     public List<Movement> getMovements(Long id) {
-         Account account = accountRepository.getReferenceById(id);
-         return account.getMovement();
+        Account account = accountRepository.getReferenceById(id);
+        return account.getMovement();
     }
 }

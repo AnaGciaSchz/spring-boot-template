@@ -18,6 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Account {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

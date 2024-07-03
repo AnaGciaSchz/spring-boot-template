@@ -4,13 +4,13 @@ import es.nextdigital.exception.CardNotActivatedException;
 import es.nextdigital.exception.InsufficientCreditScoreException;
 import es.nextdigital.model.Account;
 import jakarta.persistence.Entity;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
 @Entity
 @NoArgsConstructor
 public class CreditCard extends Card {
+
     private Double creditLimit;
 
     @Builder
@@ -19,15 +19,14 @@ public class CreditCard extends Card {
         this.creditLimit = creditLimit;
     }
 
-    public Double getMoney(Double amount){
-        if(this.isActivated) {
-            if (amount <= creditLimit){
+    public Double getMoney(Double amount) {
+        if (this.isActivated) {
+            if (amount <= creditLimit) {
                 return creditLimit - amount;
-            }
-            else{
+            } else {
                 throw new InsufficientCreditScoreException(this.id);
             }
-        }else{
+        } else {
             throw new CardNotActivatedException(this.id);
         }
     }

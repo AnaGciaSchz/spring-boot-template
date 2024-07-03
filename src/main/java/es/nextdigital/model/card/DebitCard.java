@@ -16,16 +16,15 @@ public class DebitCard extends Card {
         super(id, isActivated, pin, bank, account);
     }
 
-    public Double getMoney(Double amount){
+    public Double getMoney(Double amount) {
         Account account = this.getAccount();
-        if(this.isActivated)
-            if(amount <= account.getBalance() ) {
+        if (this.isActivated) {
+            if (amount <= account.getBalance()) {
                 return account.getBalance() - amount;
+            } else {
+                throw new InsufficientBalanceException(this.id);
             }
-        else{
-            throw new InsufficientBalanceException(this.id);
-        }
-        else{
+        } else {
             throw new CardNotActivatedException(this.id);
         }
     }

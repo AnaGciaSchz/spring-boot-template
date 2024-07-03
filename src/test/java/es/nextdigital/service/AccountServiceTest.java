@@ -1,12 +1,11 @@
 package es.nextdigital.service;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 import es.nextdigital.model.Account;
 import es.nextdigital.model.Movement;
 import es.nextdigital.repository.AccountRepository;
-import java.util.Collection;
 import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,7 +26,7 @@ class AccountServiceTest {
     }
 
     @Test
-    void givenAnAccount_whenTheMovementsAreRequested_thenTheyAreCorrectlyReturned(){
+    void givenAnAccount_whenTheMovementsAreRequested_thenTheyAreCorrectlyReturned() {
 
         when(accountRepository.getReferenceById(111111L)).thenReturn(Account.builder().movement(List.of(Movement.builder().build())).build());
 

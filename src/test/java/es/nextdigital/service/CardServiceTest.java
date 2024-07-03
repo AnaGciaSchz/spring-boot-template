@@ -35,7 +35,7 @@ class CardServiceTest {
     }
 
     @Test
-    void givenAnActivatedDebitCardAndEnoughMoneyOnAccount_whenClientWantsToGetMoney_HeGetsIt(){
+    void givenAnActivatedDebitCardAndEnoughMoneyOnAccount_whenClientWantsToGetMoney_HeGetsIt() {
         when(cardRepository.getReferenceById(VALID_ID)).thenReturn(DebitCard.builder()
             .id(1L)
             .account(Account.builder()
@@ -43,21 +43,21 @@ class CardServiceTest {
                 .build())
             .isActivated(true)
             .build());
-        assertEquals(cardService.getMoney(VALID_ID, 5.0),5.0);
+        assertEquals(cardService.getMoney(VALID_ID, 5.0), 5.0);
     }
 
     @Test
-    void givenAnActivatedCrebitCardAndEnoughCreditLimit_whenClientWantsToGetMoney_HeGetsIt(){
+    void givenAnActivatedCrebitCardAndEnoughCreditLimit_whenClientWantsToGetMoney_HeGetsIt() {
         when(cardRepository.getReferenceById(VALID_ID)).thenReturn(CreditCard.builder()
             .id(1L)
-             .creditLimit(ENOUGH_CREDIT)
+            .creditLimit(ENOUGH_CREDIT)
             .isActivated(true)
             .build());
-        assertEquals(cardService.getMoney(VALID_ID, 5.0),5.0);
+        assertEquals(cardService.getMoney(VALID_ID, 5.0), 5.0);
     }
 
     @Test
-    void givenANonActivatedDebitCardAndEnoughMoneyOnAccount_whenClientWantsToGetMoney_HeDoesttGetIt(){
+    void givenANonActivatedDebitCardAndEnoughMoneyOnAccount_whenClientWantsToGetMoney_HeDoesttGetIt() {
         when(cardRepository.getReferenceById(VALID_ID)).thenReturn(DebitCard.builder()
             .id(1L)
             .account(Account.builder()
@@ -69,7 +69,7 @@ class CardServiceTest {
     }
 
     @Test
-    void givenANonActivatedCrebitCardAndEnoughCreditLimit_whenClientWantsToGetMoney_HeDoesntGetIt(){
+    void givenANonActivatedCrebitCardAndEnoughCreditLimit_whenClientWantsToGetMoney_HeDoesntGetIt() {
         when(cardRepository.getReferenceById(VALID_ID)).thenReturn(CreditCard.builder()
             .id(1L)
             .creditLimit(ENOUGH_BALANCE)
@@ -79,7 +79,7 @@ class CardServiceTest {
     }
 
     @Test
-    void givenAnActivatedDebitCardAndNotEnoughMoneyOnAccount_whenClientWantsToGetMoney_HeDoesntGetIt(){
+    void givenAnActivatedDebitCardAndNotEnoughMoneyOnAccount_whenClientWantsToGetMoney_HeDoesntGetIt() {
         when(cardRepository.getReferenceById(VALID_ID)).thenReturn(DebitCard.builder()
             .id(1L)
             .account(Account.builder()
@@ -89,6 +89,7 @@ class CardServiceTest {
             .build());
         assertThrows(InsufficientBalanceException.class, () -> cardService.getMoney(VALID_ID, 5.0));
     }
+
     @Test
     void givenInvalidLanguage_thenItThrowsAnExceptionWhenWeGetByLanguage() {
         when(cardRepository.getReferenceById(VALID_ID)).thenReturn(CreditCard.builder()
