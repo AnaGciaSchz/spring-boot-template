@@ -17,7 +17,6 @@ public class AccountService {
         this.accountRepository = accountRepository;
     }
 
-
     public List<Movement> getMovements(Long id) {
          Account account = accountRepository.getReferenceById(id);
          return account.getMovement();

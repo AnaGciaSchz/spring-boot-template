@@ -1,2 +1,5 @@
-package es.nextdigital.controller;public class CardController {
+package es.nextdigital.controller;
+
+public class CardController {
+
 }
